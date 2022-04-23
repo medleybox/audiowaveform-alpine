@@ -3,6 +3,8 @@
 
 Used within the [Medleybox project][github-vault] to extract waveform data and display within the web player.
 
+![Medleybox Player](.github/medleybox_player.jpg)
+
 ## Usage
 To use audiowaveform within your image, copy the compiled binary from ghcr.io repo and install some packages required to run audiowaveform on alpine.
 
@@ -38,4 +40,4 @@ docker build -t ghcr.io/medleybox/audiowaveform-alpine:master .
 [github-vault]: https://github.com/medleybox/vault/blob/master/src/Service/Audiowaveform.php
 [github-audiowaveform]: https://github.com/bbc/audiowaveform
 [github-actions]: https://github.com/medleybox/audiowaveform-alpine/actions/workflows/docker-publish.yml
-[docker-image-version]: https://github.com/medleybox/audiowaveform-alpine/pkgs/container/audiowaveform-alpine/versions
+[docker-image-versions]: https://github.com/medleybox/audiowaveform-alpine/pkgs/container/audiowaveform-alpine/versions
