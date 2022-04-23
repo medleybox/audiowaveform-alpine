@@ -36,13 +36,14 @@ RUN cp /lib/libz* /usr/lib \
     && cd \
     && rm -rf /audiowaveform
 
-RUN /bin/audiowaveform --version;
-
-
 FROM alpine:latest
 
+COPY entrypoint.sh /bin/entrypoint
 COPY --from=builder /bin/audiowaveform /bin/audiowaveform
 
-RUN apk --no-cache add gcc zlib-static libpng-static boost-static
+RUN chmod +x /bin/entrypoint /bin/audiowaveform \
+  && apk --no-cache add gcc zlib-static libpng-static boost-static \
+  && /bin/audiowaveform --version
 
-RUN /bin/audiowaveform --version;
+ENTRYPOINT ["/bin/sh","/bin/entrypoint", "$@"]
+#ENTRYPOINT /bin/entrypoint
