@@ -18,7 +18,7 @@ Build:
       --tag $CI_REGISTRY_IMAGE:latest
       .
     - docker push $CI_REGISTRY_IMAGE:latest
-    - export AF_VERSION="`docker run --rm -it $CI_REGISTRY_IMAGE:latest --version | grep -Eo '([0-9]{1,}\.)+[0-9]{1,}' | head -n 1`"
+    - export AF_VERSION="`docker run --rm $CI_REGISTRY_IMAGE:latest --version | grep -Eo '([0-9]{1,}\.)+[0-9]{1,}' | head -n 1`"
     - echo $AF_VERSION
     - docker tag $CI_REGISTRY_IMAGE:latest $CI_REGISTRY_IMAGE:$AF_VERSION
     - docker push $CI_REGISTRY_IMAGE:$AF_VERSION
