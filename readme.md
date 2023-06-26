@@ -1,7 +1,7 @@
 # audiowaveform-alpine
-[Audiowaveform][github-audiowaveform] binary compiled to run on latest alpine base image.
+[Audiowaveform][github-audiowaveform] binary compiled to run on latest (3.18) alpine base image.
 
-Used within the [Medleybox project][github-vault] to extract waveform data and display within the web player.
+Used within the [Medleybox project][github-vault] to extract waveform data and display within the [wavesurfer.js][github-wavesurfer] player.
 
 ![Medleybox Player](.github/medleybox_player.jpg)
 
@@ -18,7 +18,7 @@ RUN apk --no-cache add gcc zlib-static libpng-static boost-static
 RUN /bin/audiowaveform --version;
 ```
 
-This image can also be used to run the via `docker run`:
+This image can also be used to run the `audiowaveform` binary via `docker run`:
 ```bash
 docker run --rm -it ghcr.io/medleybox/audiowaveform-alpine:master --help
 docker run --rm -it ghcr.io/medleybox/audiowaveform-alpine:master --version
@@ -39,5 +39,6 @@ docker build -t ghcr.io/medleybox/audiowaveform-alpine:master .
 
 [github-vault]: https://github.com/medleybox/vault/blob/master/src/Service/Audiowaveform.php
 [github-audiowaveform]: https://github.com/bbc/audiowaveform
+[github-wavesurfer]: https://github.com/katspaugh/wavesurfer.js/tree/v6
 [github-actions]: https://github.com/medleybox/audiowaveform-alpine/actions/workflows/docker-publish.yml
 [docker-image-versions]: https://github.com/medleybox/audiowaveform-alpine/pkgs/container/audiowaveform-alpine/versions

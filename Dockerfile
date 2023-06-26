@@ -1,4 +1,4 @@
-FROM alpine:latest as builder
+FROM alpine:3.18 as builder
 
 WORKDIR /build
 
@@ -84,7 +84,7 @@ RUN cp /lib/libz* /usr/lib \
     && cd /build \
     && rm -rf /audiowaveform
 
-FROM alpine:latest
+FROM alpine:3.18
 
 COPY entrypoint.sh /bin/entrypoint
 COPY --from=builder /bin/audiowaveform /bin/audiowaveform
